@@ -21,16 +21,19 @@ class Walker {
     float r = random(1);
     if (r < 0.4){
       x+= 5;
-      z++;
-    //check bouncing ball to make the color go back from red to random
     } else if (r < 0.9) {
       y+= 5;
     } else {
       y--;
     }
+    //like a bouncing bal, to make the color go back from red to random
     if (z >= 48) {
       z = z * -1;
     }
+    else {
+    z++;
+    }
+    
     brownHue = constrain (z, 0, 48);
     x= constrain(x,0, width-1);
     y= constrain(y,0,height-1); 
