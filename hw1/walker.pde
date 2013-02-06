@@ -1,44 +1,37 @@
 class Walker {
-  int x,y,z;
-  float brownHue = z;
+  int x,y;
+  float brownHue;
   
   Walker() {
-    x = 0;
+    x = width/2;
     y = height/2;
-    z = 0;
   }
 
 
   void render() {
+    println("render time:"+frameCount+" x:"+x+" y:"+y+" bh:"+brownHue);
     noFill();
-    stroke(brownHue, 100, 50);
-    println(brownHue);
+    stroke(brownHue, 80, 93);
     strokeWeight(1);
     ellipse(width/2, height/2, x, y);
   }
   
   void step() {
-    float r = random(1);
-    if (r < 0.4){
-      x+= 5;
-    } else if (r < 0.9) {
-      y+= 5;
-    } else {
-      y--;
-    }
-    //like a bouncing bal, to make the color go back from red to random
-    if (z >= 48) {
-      z = z * -1;
-    }
-    else {
-    z++;
-    }
-    
-    brownHue = constrain (z, 0, 48);
+    float vx = random(-2, 2);
+    float vy = random(-2, 2);
+    x += vx;
+    y += vy;
+        
+    brownHue = random(0,48);
+    println("\n\nstep1 time:"+frameCount+" x:"+x+" y:"+y+" bh:"+brownHue);
     x= constrain(x,0, width-1);
     y= constrain(y,0,height-1); 
-    x *= noise(frameCount)*3;
-    y *= noise(frameCount)*3;
-    //look into bezier curves
+    float nx=noise(frameCount)*3;
+    float ny=noise(frameCount)*3;
+    println("step2 time:"+frameCount+" x:"+x+" nx:"+nx+" y:"+y+" ny:"+ny+" bh:"+brownHue);
+    x *= nx;
+    y *= ny;
+    println("step3 time:"+frameCount+" x:"+x+" y:"+y+" bh:"+brownHue);
+
     }
  }
