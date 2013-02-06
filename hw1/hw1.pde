@@ -6,7 +6,7 @@ void setup () {
   
   w = new Walker();
   colorMode(HSB, 360, 100, 200, 100);
-  background(255);
+  background(31, 9, 78);
 }
 
 void draw() {
