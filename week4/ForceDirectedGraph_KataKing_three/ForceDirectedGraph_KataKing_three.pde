@@ -17,6 +17,7 @@ PFont f;
 PImage backgroundImg;
 PImage littlekata;
 PImage kataking;
+//PImage kataball;
 
 void setup() {
   size(600, 700);
@@ -24,6 +25,8 @@ void setup() {
   backgroundImg = loadImage("background.jpg");
   littlekata = loadImage("lilkata.png");
   kataking = loadImage("katamariking.png");
+  //  kataball = loadImage("kataball.png");
+
   // Initialize the physics
   physics=new VerletPhysics2D();
   physics.setWorldBounds(new Rect(10, 10, width-20, height-20));
@@ -61,9 +64,9 @@ void draw() {
 
   // Update the physics world
   physics.update();
-  
+
   background(255);
-  image(backgroundImg,width/2, height/2, 600, 700);
+  image(backgroundImg, width/2, height/2, 600, 700);
   image(kataking, width/2, height/2, 300, 500);
   // If we want to see the physics
   if (showPhysics) {
@@ -86,10 +89,11 @@ void draw() {
       c.display();
     }
   }
+
   // Instructions
   fill(255);
   textFont(f);
-  text("'p' to display or hide particles\n'c' to display or hide connections\n'n' for new graph", 10, 20);
+  text("'p' to display or hide particles\n'c' to display or hide connections\n'n' for new Katamaries with egg on toasts", 10, 20);
 }
 
 // Key press commands
