@@ -1,6 +1,5 @@
 ArrayList<LineMaker> lines;
 
-
 void setup() {
   size (800, 800);
   lines = new ArrayList<LineMaker>();  // Create an empty ArrayList
